@@ -4,11 +4,28 @@
 <head>
     <title>Experimental Page</title>
     <meta charset="UTF-8">
+    <script>
+        const canvas = document.getElementById("experimental-canvas");
+        const candraw = canvas.getContext("2d");
+        candraw.fillStyle = "blue";
+        candraw.fillRect(5, 5, 50, 50);
+    </script>
 </head>
 
 <body>
     <h1>Experiments: </h1>
-
+    <template id="experimental-template">
+        I'm in the page.
+        <img src="./about/biography/images/youngertree.JPG">
+    </template>
+    <canvas id="experimental-canvas">
+    </canvas>
+    <audio controls muted>
+        <source src="music/nanoray-salmoncannondeluxe.mp3" type="audio/mp3">
+    </audio>
+    <video controls loop>
+        <source src="video/thefunny.mov" type="video/mov">
+    </video>
 </body>
 
 </html>
