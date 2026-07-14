@@ -9,13 +9,25 @@
         html {
             border: 0.5rem solid black;
         }
+
+        my-name {
+            display: block;
+            color: limegreen;
+        }
     </style>
     <script>
+        class HelloWorld extends HTMLElement {
+            connectedCallback() {
+                console.log("Hello World");
+            }
+        }
 
+        customElements.define('hello-world', HelloWorld);
     </script>
 </head>
 
 <body>
+    <hello-world></hello-world>
     <header>
         <h1>Wispy Trees</h1>
         <h2>Dmitri Singer's Portfolio/Resume Website</h2>
@@ -41,10 +53,9 @@
         <section id="skills">
             <h2><a href="skills/">Skills</a></h2>
         </section>
-        <p>text</p>
     </main>
     <footer>
-        WispyTrees
+        <my-name>WispyTrees</my-name>
         <noscript>JavaScript is not needed at the moment, but it will be added later!</noscript>
     </footer>
 </body>
