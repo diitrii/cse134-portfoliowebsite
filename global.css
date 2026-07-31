@@ -1,0 +1,131 @@
+body {
+    font-family: OCR A Std, monospace;
+    border: 0.5 rem solid #A904BF;
+    background: #D705F2;
+    color-scheme: light;
+
+    a {
+        color: #6600ff;
+    }
+
+    header {
+        color: #380140;
+        text-shadow: #F0F0F0 1rem 0 2rem;
+        background-color: #24c300;
+    }
+
+    #theme-toggle {
+        width: 4rem;
+        height: 3rem;
+    }
+
+    main {
+        background-color: #9BF019;
+    }
+
+    footer {
+        noscript {
+            color: #F0F0F0;
+            text-decoration: #A904BF wavy;
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        border: 0.5rem solid #660273;
+        background: #380140;
+        color-scheme: dark;
+
+        a {
+            color: #600DB5;
+        }
+
+        header {
+            color: #D705F2;
+            text-shadow: #F0F0F0 1rem 0 2rem;
+            background-color: #24c300;
+        }
+
+        .dark-light-switcher {
+            width: 5vh;
+            height: 5vh;
+        }
+
+        main {
+            background-color: #9BF019;
+        }
+
+        footer {
+            noscript {
+                color: #F0F0F0;
+                text-decoration: #A904BF wavy;
+            }
+        }
+    }
+}
+
+[data-theme='dark'] body {
+    border: 0.5rem solid #660273;
+    background: #380140;
+    color-scheme: dark;
+
+    a {
+        color: #600DB5;
+    }
+
+    header {
+        color: #D705F2;
+        text-shadow: #F0F0F0 1rem 0 2rem;
+        background-color: #24c300;
+    }
+
+    .dark-light-switcher {
+        width: 5vh;
+        height: 5vh;
+    }
+
+    main {
+        background-color: #9BF019;
+    }
+
+    footer {
+        noscript {
+            color: #F0F0F0;
+            text-decoration: #A904BF wavy;
+        }
+    }
+}
+
+[data-theme='light'] body {
+    font-family: OCR A Std, monospace;
+    border: 0.5 rem solid #A904BF;
+    background: #D705F2;
+    color-scheme: light;
+
+    a {
+        color: #6600ff;
+    }
+
+    header {
+        color: #380140;
+        text-shadow: #F0F0F0 1rem 0 2rem;
+        background-color: #24c300;
+    }
+
+    #theme-toggle {
+        width: 4rem;
+        height: 3rem;
+    }
+
+    main {
+        background-color: #9BF019;
+    }
+
+    footer {
+        noscript {
+            color: #F0F0F0;
+            text-decoration: #A904BF wavy;
+        }
+    }
+}
