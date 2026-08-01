@@ -1,6 +1,7 @@
+//setting the fieldset and the radio pickers
 const fieldset = document.getElementById('theme-picker');
 const radios = fieldset.querySelectorAll('input[name="theme"]');
-
+//setters and getters for local storage
 function safeGet(key) {
     try {
         return localStorage.getItem(key);
@@ -16,7 +17,7 @@ function safeSet(key, value) {
 
     }
 }
-
+//applying the automatic theme when "auto" is selected
 function applyTheme(theme) {
     if (theme === 'auto') {
         document.documentElement.removeAttribute('data-theme');
@@ -24,7 +25,10 @@ function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
     }
 }
-
+//the initial picker, first either picks saved theme or the automatic
+//checks if each value for the radio is the same as the saved value
+//then applies the saved theme
+//
 function initPicker() {
     const saved = safeGet('theme') || 'auto';
 
