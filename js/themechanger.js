@@ -1,28 +1,48 @@
-//I did use Claude in this assignment.
-// The toggle button simply just gets my "theme-toggle" element. 
-const toggleBtn = document.getElementById('theme-toggle');
+const fieldset = document.getElementById('theme-picker');
+const radios = fieldset.querySelectorAll('input[name="theme"]');
 
-function getPreferredTheme() {
-    const saved = localStorage.getItem('theme');
-    if (saved) return saved;
-
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+function safeGet(key) {
+    try {
+        return localStorage.getItem(key);
+    } catch (e) {
+        return null;
+    }
 }
 
-const theme = getPreferredTheme();
-document.documentElement.setAttribute('data-theme', theme);
-updateButtonText(theme);
+function safeSet(key, value) {
+    try {
+        localStorage.setItem(key, value);
+    } catch (e) {
 
-//toggle on click
-toggleBtn.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    }
+}
 
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateButtonText(newTheme);
+function applyTheme(theme) {
+    if (theme === 'auto') {
+        document.documentElement.removeAttribute('data-theme');
+    } else {
+        document.documentElement.setAttribute('data-theme', theme);
+    }
+}
+
+function initPicker() {
+    const saved = safeGet('theme') || 'auto';
+
+    radios.forEach(radio => {
+        radio.checked = radio.value === saved;
+    });
+
+    applyTheme(saved);
+
+    fieldset.hidden = false;
+}
+
+radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+        const chosen = radio.value;
+        applyTheme(chosen);
+        safeSet('theme', chosen);
+    });
 });
 
-function updateButtonText(theme) {
-    toggleBtn.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
-}
+initPicker();

@@ -1,0 +1,2 @@
+# Explaining FOUC Prevention
+For preventing the Flash of Unstyled Content, I have a function at the start of my HTML page that is contained within a script tag. Inside that script tag, I have a saved local storage that sets the data theme based on what is saved. This allows the html file to prevent the flash of unstyled content.

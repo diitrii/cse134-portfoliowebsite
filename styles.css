@@ -1,0 +1,30 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    color-scheme: light;
+}
+
+@media(prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1a1a1a;
+        --text-color: #f0f0f0;
+        color-scheme: dark;
+    }
+}
+
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    color-scheme: light;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    color-scheme: dark;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
