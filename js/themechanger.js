@@ -40,7 +40,7 @@ function initPicker() {
 
     fieldset.hidden = false;
 }
-
+//this uses a foreach function to apply the local storage setter upon changing the radio.
 radios.forEach(radio => {
     radio.addEventListener('change', () => {
         const chosen = radio.value;

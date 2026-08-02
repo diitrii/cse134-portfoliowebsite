@@ -24,6 +24,14 @@
     color-scheme: dark;
 }
 
+weather-widget[data-state="loading"] {
+    opacity: 0.5;
+}
+
+weather-widget[data-state="error"] {
+    border: 2px solid red;
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
