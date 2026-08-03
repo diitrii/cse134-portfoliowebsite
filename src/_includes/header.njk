@@ -1,0 +1,10 @@
+<header>
+    {{ site.title }}
+    if you are using a screen reader you are on {{ title }}
+    <nav>
+        {% for link in site.nav %}
+            <a href="{{ link.url }}"{% if page.url == link.url %} aria-current="page" class="active"{% endif %}>{{ link.text }}</a>
+        {% endfor %}
+    </nav>
+</header>
+<hr>

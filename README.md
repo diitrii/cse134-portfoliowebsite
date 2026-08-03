@@ -11,3 +11,9 @@ End Point: https://open-meteo.com/
 Usage: 
 Temperature: 'weather.temperature' C
 Wind Speed: 'weather.windspeed' km/h
+
+## SSG setup:
+header: has controls for the navigaton and something for screen readers.
+base: has the weather app and the light/dark mode.
+footer: has my name and the noscript if JS is disabled.
+each njk file should work as "title" displays the page title, as well as some other njk loaders to properly fit on the page. 

@@ -1,0 +1,20 @@
+[
+    {
+        "title": "My First Blog Post",
+        "slug": "first-post",
+        "date": "2026-08-02",
+        "content": "Well yeah, this is my first blog post here! Never really done a blog before, but I'm hoping I can use this page to talk about some cool stuff I've been working on, and the places I've been!"
+    },
+    {
+        "title": "Learning JavaScript",
+        "slug": "learning-js",
+        "date": "2026-08-02",
+        "content": "I gotta say, learning JavaScript has been quite difficult, but I'm not stopping here!"
+    },
+    {
+        "title": "San Diego Adventures",
+        "slug": "san-diego-adventures",
+        "date": "2026-08-02",
+        "content": "Explored some new spots around my backyard East County this weekend. San Diego never runs out of places to check out, I recommend Kabul Kebob House."
+    }
+]

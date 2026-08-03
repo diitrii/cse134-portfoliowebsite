@@ -1,0 +1,22 @@
+---
+layout: base.njk
+pagination:
+  data: posts
+  size: 1
+  alias: post
+permalink: "/about/blog/{{ post.slug }}/"
+title: "{{ post.title }}"
+---
+<article id="blog-post">
+    <h1>{{ post.title }}</h1>
+    <p class="post-date">{{ post.date }}</p>
+    <p>{{ post.content }}</p>
+</article>
+<section class="comments">
+    <h1>No Comments Yet.</h1>
+    <form>
+        <label for="comment">Comment Section</label>
+        <textarea id="comment" rows="5" cols="30">Add your comment here...</textarea>
+        <button>Submit</button>
+    </form>
+</section>

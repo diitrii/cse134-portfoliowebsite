@@ -1,0 +1,94 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    color-scheme: light;
+}
+
+@font-face {
+    font-family: 'super_feelregular';
+    src: url('/fonts/superfeel-jpzqa-webfont.woff2') format('woff2'),
+        url('/fonts/superfeel-jpzqa-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bulzingoutline';
+    src: url('/fonts/bulzingoutline-jeolm-webfont.woff2') format('woff2'),
+        url('/fonts/bulzingoutline-jeolm-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bulzing';
+    src: url('/fonts/Bulzing-z8BPD.ttf') format('tff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'bulzingitalic';
+    src: url('/fonts/bulzingitalic-golrd-webfont.woff2') format('woff2'),
+        url('/fonts/bulzingitalic-golrd-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@media(prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #8b53fe;
+        --text-color: #8eff01;
+        color-scheme: dark;
+    }
+}
+
+[data-theme="light"] {
+    --bg-color: #22c55e;
+    --text-color: #4c1d95;
+    color-scheme: light;
+}
+
+[data-theme="dark"] {
+    --bg-color: #8b53fe;
+    --text-color: #8eff01;
+    color-scheme: dark;
+}
+
+weather-widget[data-state="loading"] {
+    opacity: 0.5;
+}
+
+weather-widget[data-state="error"] {
+    border: 2px solid red;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+
+    a {
+        font-family: 'bulzingitalic', sans-serif;
+        color: #1da1f2;
+    }
+
+    h1 {
+        font-family: 'super_feelregular', sans-serif;
+        text-shadow: rgba(29, 35, 49, 0.75) 0px 0px 55px;
+    }
+
+    h2 {
+        font-family: 'bulzingitalic', sans-serif;
+        text-shadow: rgba(29, 35, 49, 0.75) 0px 0px 55px;
+    }
+
+    p {
+        font-family: 'bulzing', sans-serif;
+        text-shadow: rgba(29, 35, 49, 0.75) 0px 0px 55px;
+    }
+}

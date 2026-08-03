@@ -1,0 +1,25 @@
+{
+  "name": "cse134-fullsite",
+  "version": "1.0.0",
+  "description": "For preventing the Flash of Unstyled Content, I have a function at the start of my HTML page that is contained within a script tag. Inside that script tag, I have a saved local storage that sets the data theme based on what is saved. This allows the html file to prevent the flash of unstyled content.",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diitrii/cse134-portfoliowebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diitrii/cse134-portfoliowebsite/issues"
+  },
+  "homepage": "https://github.com/diitrii/cse134-portfoliowebsite#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  }
+}

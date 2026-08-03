@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ title }}</title>
+        <script>
+            (function () {
+                try {
+                    var saved = localStorage.getItem('theme');
+                    if (saved === 'light' || saved === 'dark') {
+                        document
+                            .documentElement
+                            .setAttribute('data-theme', saved);
+                    }
+                } catch (e) {}
+            })();
+        </script>
+        <script src="/js/themechanger.js" defer></script>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+
+    <body>
+        {% include "header.njk" %}
+
+        <fieldset id="theme-picker" hidden>
+            <legend>Theme Picker</legend>
+            <label>
+                <input type="radio" name="theme" value="light">
+            Light
+        </label>
+            <label>
+                <input type="radio" name="theme" value="dark">
+            Dark
+        </label>
+            <label>
+                <input type="radio" name="theme" value="auto">
+            Auto
+        </label>
+        </fieldset>
+
+        {{ content | safe }}
+
+        {% include "footer.njk" %}
+    </body>
+
+</html>
