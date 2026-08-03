@@ -42,32 +42,36 @@ class WeatherWidget extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         this.abortController = null;
         //innerHTML that doesn't come from an API response
-        this.shadowRoot.innerHTML = `
-        <style>
-            :host {
+        const style = document.createElement('style');
+        style.textContent = `
+        :host {
             display: block;
             border: var(--weather-border, 1px solid #ccc);
             border-radius: var(--weather-radius, 8px);
             padding: var(--weather-padding, 1rem);
             font-family: inherit;
-            }
-            .state-idle, .state-loading, .state-error {
-                color: var(--weather-muted-text, #666);
-            }
-            .weather-card {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-        </style>
-        <div class="widget-body">
-            <slot>
-                <p>Weather data requires JavaScript to work properly.</p>
-            </slot>
-        </div>
-            `;
+        }
+        .state-idle, .state-loading, .state-error {
+            color: var(--weather-muted-text, #666);
+        }
+        .weather-card {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+    `;
 
-        this.body = this.shadowRoot.querySelector('.widget-body');
+        const wrapper = document.createElement('div');
+        wrapper.className = 'widget-body';
+
+        const slot = document.createElement('slot');
+        const fallback = document.createElement('p');
+        fallback.textContent = 'Weather data requires JavaScript to work properly.';
+        slot.appendChild(fallback);
+        wrapper.appendChild(slot);
+
+        this.shadowRoot.append(style, wrapper);
+        this.body = wrapper;
     }
     //callback function to create idle
     connectedCallback() {
@@ -106,6 +110,7 @@ class WeatherWidget extends HTMLElement {
         this.abortController = new AbortController();
 
         this.setState('loading');
+        this.body.replaceChildren();
         this.renderLoading();
 
         const lat = this.getAttribute('latitude') || '32.7157';
@@ -144,6 +149,7 @@ class WeatherWidget extends HTMLElement {
     }
     //rendering in the elements for the weather component
     renderLoading() {
+        this.body.replaceChildren();
         const p = document.createElement('p');
         p.className = 'state-loading';
         p.setAttribute('role', 'status');
@@ -153,6 +159,7 @@ class WeatherWidget extends HTMLElement {
     }
     //render if the weather data is empty
     renderEmpty() {
+        this.body.replaceChildren();
         const p = document.createElement('p');
         p.className = 'state-idle';
         p.textContent = 'No weather data available yet';
@@ -160,6 +167,7 @@ class WeatherWidget extends HTMLElement {
     }
     //if rendering is successful
     renderSuccess(weather) {
+        this.body.replaceChildren();
         const template = document.getElementById('weather-template');
         const clone = template.content.cloneNode(true);
 
@@ -170,7 +178,7 @@ class WeatherWidget extends HTMLElement {
     }
     //if there is an error rendering weather data
     renderError() {
-
+        this.body.replaceChildren();
         const p = document.createElement('p');
         p.className = 'state-error';
         p.setAttribute('role', 'alert');
