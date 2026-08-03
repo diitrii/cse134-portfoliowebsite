@@ -144,7 +144,6 @@ class WeatherWidget extends HTMLElement {
     }
     //rendering in the elements for the weather component
     renderLoading() {
-        this.body.innerHTML = '';
         const p = document.createElement('p');
         p.className = 'state-loading';
         p.setAttribute('role', 'status');
@@ -154,7 +153,6 @@ class WeatherWidget extends HTMLElement {
     }
     //render if the weather data is empty
     renderEmpty() {
-        this.body.innerHTML = '';
         const p = document.createElement('p');
         p.className = 'state-idle';
         p.textContent = 'No weather data available yet';
@@ -168,12 +166,10 @@ class WeatherWidget extends HTMLElement {
         clone.querySelector('.weather-temp').textContent = weather.temperature;
         clone.querySelector('.weather-wind').textContent = weather.windspeed;
 
-        this.body.innerHTML = '';
         this.body.appendChild(clone);
     }
     //if there is an error rendering weather data
     renderError() {
-        this.body.innerHTML = '';
 
         const p = document.createElement('p');
         p.className = 'state-error';
